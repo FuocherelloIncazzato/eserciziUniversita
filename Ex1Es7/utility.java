@@ -1,10 +1,10 @@
+package Ex1Es7;
 import java.util.Scanner;
-
 public class utility {
     public static int estraiNumeroCasuale(){
         int x;
         do{
-            x = (int)(Math.random()*11);
+            x = (int)(Math.random()*101);
         }while(x==0);
         return x;
     }

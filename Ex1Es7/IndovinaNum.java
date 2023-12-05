@@ -1,3 +1,4 @@
+package Ex1Es7;
 import java.util.Scanner;
 public class IndovinaNum{
     public static int [] numeriDaIndovinare = new int[5];
