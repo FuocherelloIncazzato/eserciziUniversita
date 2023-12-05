@@ -26,19 +26,21 @@ public class Metodi {
     }
     public static char [] checkLettera(char lettera,char [] hideWord, char [] guessWord){
         boolean check=false;
+        boolean checkExist=false;
         for(int i=0;i<hideWord.length;i++){
-            if(hideWord[i]==lettera)
-                System.out.println("Lettera già presente sei deficiente?");
-            else {
+            if(hideWord[i]==lettera && !checkExist) {
+                System.out.println("Lettera già trovatas sei deficiente?");
+                checkExist = true;
+            }else {
                 if (guessWord[i] == lettera) {
                     hideWord[i] = guessWord[i];
                     check=true;
                 }
             }
         }
-    if(!check)
+    if(!check) {
         System.out.println("Lettera non trovata!");
-
+    }
         return hideWord;
     }
 }

@@ -17,6 +17,13 @@ public class GuessWord {
             char lettera = myobj.next().charAt(0);
             hideWord = Metodi.checkLettera(lettera,hideWord,guessWordChar);
         }while(!Arrays.equals(hideWord,guessWordChar) && tentativi<21);
+        if(Arrays.equals(hideWord,guessWordChar)){
+            System.out.println("Parola indovinata!: "+hideWord);
+        }
+        else{
+            System.out.println("Parola non indovinata! la parola era: "+guessWord);
+        }
+
         //Metodi.printCharArray(hideWord);
     }
 }
