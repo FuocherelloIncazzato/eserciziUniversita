@@ -1,28 +1,54 @@
-import java.sql.Array;
 import java.util.Scanner;
 public class IndovinaNum{
-    public static void main(String[] args){
+    public static int [] numeriDaIndovinare = new int[5];
+    public static boolean [] indovinato = new boolean[5];
+    public static int [] numeroTentativi = new int[5];
+    public static void main(String[] args) {
         Scanner myobj = new Scanner(System.in);
-        int generato = Estrai.estraiNumeroCasuale();
-        int inserito,output,cont=0;
-        int [] cronologia = new int[10];
-        do{
-            System.out.println("inserisci un numero intero!: ");
-            inserito = myobj.nextInt();
-            output = Estrai.confrontaNumeri(inserito,generato);
-            if(cont<10) {
-                cronologia[cont] = inserito;
-            }
-            Estrai.checkStupido(inserito,cronologia);
-            System.out.println("cont: "+cont);
-            cont++;
-        }while(output!=0 && cont<11);
-        System.out.println("Il numero da indovinare: "+generato);
-        if(output==0) {
-            System.out.println("L'utente ha indovinato con "+cont+" tentativi!");
+        char scelta='y';
+        int giocate=0;
+        giocate=utility.indovinaNum(giocate);
+        do {
+            System.out.println("vuoi giocare di nuovo? y/n");
+            scelta = myobj.next().charAt(0);
+                if(scelta=='y'){
+                    System.out.println("giocate numero "+giocate+1);
+                    giocate=utility.indovinaNum(giocate);
+                } else if (scelta=='n') {
+                    System.out.println("gioco chiuso");
+                    utility.stampaIntArray(numeriDaIndovinare);
+                    utility.stampaBooleanArray(indovinato);
+                    utility.stampaIntArray(numeroTentativi);
+                    System.out.println("giocate: "+giocate);
+                }
+        }while(scelta=='y');
+    }
 
-        }else
-            System.out.println("L'utente ha perso (che sfigato)!");
+public static void aggiornaInformazioniPartite(int generato,boolean risultato,int tentativi,int giocate){
+                if(giocate<numeriDaIndovinare.length) {
+                    numeriDaIndovinare[giocate] = generato;
+                }
+                else{
+                    numeriDaIndovinare[giocate-numeriDaIndovinare.length] = generato;
+                }
+
+    if(giocate<indovinato.length) {
+        indovinato[giocate] = risultato;
+    }
+    else{
+        indovinato[giocate-indovinato.length] = risultato;
+    }
+
+    if(giocate<numeroTentativi.length) {
+        numeroTentativi[giocate] = tentativi;
+    }
+    else{
+        numeroTentativi[giocate-numeroTentativi.length] = tentativi;
+    }
+
 
     }
+
+
 }
+
