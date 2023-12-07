@@ -7,7 +7,7 @@ public class Metodi {
         return x;
     }
     public static String getRandomString(){
-        String [] stringArray = {"ciaone","strunz","scemoscemo","trottola","rafa","subarubaracca"};
+        String [] stringArray = {"lettera","parola","scivolo","banana","mela","automobile"};
         int index = getRandomNumber(stringArray.length);
     return stringArray[index];
     }
