@@ -115,19 +115,19 @@ public class Robotinstruction {
                 colonne = Integer.parseInt(args[1]);
                 String mosse = args[2];
                 char [] arrayCharMosse = convertArrayChar(mosse);
-            System.out.println("World Create:");
-            stampaMatrice(world);
+            //System.out.println("World Create:");
+            //stampaMatrice(world);
             checkAddedScope = aggiungiObiettivo(righe-1,colonne-1);
             if(checkAddedScope) {
-                System.out.println("Scope added:");
+                //System.out.println("Scope added:");
                 for(int i = 0 ;i<10;i++){
                     aggiungiOstacolo();
                 }
-                System.out.println("Ostacoli aggiunti:");
-                stampaMatrice(world);
+                //System.out.println("Ostacoli aggiunti:");
+                //stampaMatrice(world);
                 int output = aggiungiPosizioniRobot(arrayCharMosse);
-                System.out.println("Percorso Robot:");
-                stampaMatrice(world);
+                //System.out.println("Percorso Robot:");
+                //stampaMatrice(world);
                 if(output==1){
                     System.out.println("Obbiettivo raggiunto!");
                 }
